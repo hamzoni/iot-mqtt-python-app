@@ -19,10 +19,6 @@ class DatabaseContainer(Container):
     def get_pin_collection():
         return DatabaseService.pin()
 
-    @staticmethod
-    def get_temperature_collection():
-        return DatabaseService.temperature()
-
 
 class ServiceContainer(Container):
     @staticmethod
