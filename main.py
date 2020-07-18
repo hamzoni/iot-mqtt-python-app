@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from services.queues.queue_service import QueueService
-
 from api.monitor import api_monitor as monitor
+from api.signal import api_signal as signal
+from services.queues.queue_service import QueueService
 
 # run queue service
 QueueService.run()
@@ -23,4 +23,10 @@ app.include_router(
     monitor.router,
     prefix='/monitor',
     tags=['Monitor'],
+)
+
+app.include_router(
+    signal.router,
+    prefix='/signal',
+    tags=['Signal'],
 )

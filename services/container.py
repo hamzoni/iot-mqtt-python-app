@@ -1,4 +1,5 @@
 from services.monitor.temperature_monitor_service import TemperatureMonitorService
+from services.signals.pin_control_service import PinControlService
 from services.signals.pin_registry_service import PinRegistryService
 
 
@@ -20,3 +21,7 @@ class ServiceContainer(Container):
     @staticmethod
     def get_pin_registry_service():
         return PinRegistryService()
+
+    @staticmethod
+    def get_pin_control_service():
+        return PinControlService()
