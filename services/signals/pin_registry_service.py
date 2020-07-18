@@ -1,8 +1,27 @@
+import pymongo
+
 from services.database import DatabaseService
 from services.signals.entities import Pin
 
 
 class PinRegistryService:
+
+    @staticmethod
+    def list_all():
+        collection = DatabaseService.pin()
+        items = collection.find().sort([
+            ('created_at', pymongo.DESCENDING)
+        ])
+
+        results = []
+
+        for item in items:
+            item['_id'] = str(item['_id'])
+            results.append(item)
+
+        return {
+            'results': results
+        }
 
     @staticmethod
     def add(record: Pin):
