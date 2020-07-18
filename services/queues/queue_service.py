@@ -2,7 +2,7 @@ import threading
 
 import paho.mqtt.client as mqtt
 
-from configs import topics_registry, Configs
+from services.configs import topics_registry, Configs
 from services.queues.queue_route_service import QueueRouteService
 
 
@@ -25,7 +25,7 @@ class QueueService:
         self.client = client
 
     def start(self):
-        self.client.connect(Configs.MQTT_HOST, Configs.MQTT_PORT, 60)
+        self.client.connect(Configs.MQTT_HOST, int(Configs.MQTT_PORT), 60)
         self.client.loop_forever()
 
     @staticmethod

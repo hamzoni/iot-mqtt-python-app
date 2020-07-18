@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+api/__pycache__/
+api/monitor/__pycache__/
+api/monitor/endpoints/__pycache__/
+services/__pycache__/
+services/configs/
+services/monitor/__pycache__/
+services/queues/__pycache__/
+.idea/workspace.xml
+.idea/**

@@ -1,6 +1,6 @@
 import pymongo
 
-from ..configs import Configs
+from services.configs import Configs
 
 
 class DatabaseService:

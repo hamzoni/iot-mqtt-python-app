@@ -1,4 +1,4 @@
-from configs import QueueTopics
+from services.configs import QueueTopics
 from services.container import ServiceContainer
 
 
