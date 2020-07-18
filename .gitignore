@@ -8,3 +8,4 @@ services/monitor/__pycache__/
 services/queues/__pycache__/
 .idea/workspace.xml
 .idea/**
+**/__pycache__/**
