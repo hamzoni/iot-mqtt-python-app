@@ -22,5 +22,5 @@ app.add_middleware(
 app.include_router(
     monitor.router,
     prefix='/monitor',
-    tags=["Notifications"],
+    tags=['Monitor'],
 )

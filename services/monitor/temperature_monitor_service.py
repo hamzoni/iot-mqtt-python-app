@@ -6,4 +6,4 @@ class TemperatureMonitorService(MonitorBaseService):
 
     def __init__(self):
         collection = DatabaseService.temperature()
-        super(MonitorBaseService, self).__init__(collection)
+        super().__init__(collection)
