@@ -1,14 +1,12 @@
 import pymongo
-from services.signal.entities import Pin
 
-from services.database import DatabaseService
+from services.signal.entities import Pin
 
 
 class PinRegistryService:
 
     @staticmethod
-    def list_all():
-        collection = DatabaseService.pin()
+    def list_all(collection):
         items = collection.find().sort([
             ('created_at', pymongo.DESCENDING)
         ])
@@ -24,8 +22,7 @@ class PinRegistryService:
         }
 
     @staticmethod
-    def add(record: Pin):
-        collection = DatabaseService.pin()
+    def add(collection, record: Pin):
         result = collection.insert_one({
             'pin_name': record.pin_name,
             'board_name': record.board_name,
@@ -36,8 +33,7 @@ class PinRegistryService:
         return result.acknowledged
 
     @staticmethod
-    def remove(board_name: str, pin_name: str):
-        collection = DatabaseService.pin()
+    def remove(collection, board_name: str, pin_name: str):
         result = collection.delete_many({
             'board_name': board_name,
             'pin_name': pin_name,

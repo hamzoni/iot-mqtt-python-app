@@ -1,34 +1,30 @@
-from services.database import DatabaseService
 from services.signal.entities.Pin import DigitalStatus
 
 
 class PinControlService:
 
     @staticmethod
-    def on(board_name: str, pin_name: str):
-        collection = DatabaseService.pin()
+    def on(collection, board_name: str, pin_name: str):
         return collection.update(
             {
                 'board_name': board_name,
                 'pin_name': pin_name,
             },
-            {'$set': {'digital_value': DigitalStatus.ON}}
+            {'$set': {'digital_value': DigitalStatus.ON.value}}
         )
 
     @staticmethod
-    def off(board_name: str, pin_name: str):
-        collection = DatabaseService.pin()
-        return collection.update(
+    def off(collection, board_name: str, pin_name: str):
+        collection.update(
             {
                 'board_name': board_name,
                 'pin_name': pin_name,
             },
-            {'$set': {'digital_value': DigitalStatus.OFF}}
+            {'$set': {'digital_value': DigitalStatus.OFF.value}}
         )
 
     @staticmethod
-    def set_value(board_name: str, pin_name: str, value: float):
-        collection = DatabaseService.pin()
+    def set_value(collection, board_name: str, pin_name: str, value: float):
         return collection.update(
             {
                 'board_name': board_name,
@@ -36,3 +32,10 @@ class PinControlService:
             },
             {'$set': {'analog_value': value}}
         )
+
+    @staticmethod
+    def find(collection, board_name: str, pin_name: str):
+        return collection.find_one({
+            'board_name': board_name,
+            'pin_name': pin_name,
+        })
