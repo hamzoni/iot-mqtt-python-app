@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 
+from api.signal.models.pin_model import Pin
 from services.container import ServiceContainer
-from services.signals.entities import Pin
-from services.signals.pin_registry_service import PinRegistryService
+from services.signal.pin_registry_service import PinRegistryService
 
 router = APIRouter()
 
@@ -18,13 +18,15 @@ def list_all(
 
 @router.post('')
 def add(
-        record: Pin,
+        pin: Pin,
         service: PinRegistryService = Depends(services.get_pin_registry_service)
 ):
-    return service.add(record)
+    return {
+        'result': service.add(pin)
+    }
 
 
-@router.delete('{board_name}/{pin_name}')
+@router.delete('/{board_name}/{pin_name}')
 def remove(
         board_name: str, pin_name: str,
         service: PinRegistryService = Depends(services.get_pin_registry_service)

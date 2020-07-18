@@ -1,5 +1,5 @@
 from services.database import DatabaseService
-from services.signals.entities.Pin import DigitalStatus
+from services.signal.entities.Pin import DigitalStatus
 
 
 class PinControlService:

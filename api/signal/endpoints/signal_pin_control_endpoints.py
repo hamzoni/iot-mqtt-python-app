@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
 from services.container import ServiceContainer
-from services.signals.pin_control_service import PinControlService
+from services.signal.pin_control_service import PinControlService
 
 router = APIRouter()
 
