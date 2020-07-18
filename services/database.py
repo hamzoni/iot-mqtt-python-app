@@ -12,7 +12,16 @@ class DatabaseService:
 
         self.db = db['fsb']  # database
 
+    # monitor service
     @staticmethod
     def temperature():
+        # temperature monitoring collection
         service = DatabaseService()
-        return service.db['temperature']  # temperature monitoring collection
+        return service.db['temperature']
+
+    # signal service
+    @staticmethod
+    def pin():
+        # pin registry collection
+        service = DatabaseService()
+        return service.db['pin']

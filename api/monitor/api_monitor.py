@@ -6,6 +6,6 @@ router = APIRouter()
 
 router.include_router(
     MTE.router,
-    prefix='/temperature',
-    tags=['Temperature Monitoring']
+    prefix='/analog',
+    tags=['Analog Signaling']
 )
