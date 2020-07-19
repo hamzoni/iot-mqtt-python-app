@@ -1,3 +1,8 @@
+import json
+
+from services.configs import QueueTopics
+from services.queues.models.queue_signal_message import QueueSignalMessage
+from services.queues.queue_publish_service import QueuePublishService
 from services.signal.entities.Pin import DigitalStatus
 
 
@@ -11,10 +16,23 @@ class PinControlService:
         }
 
         value = str(DigitalStatus.ON.value[0])
-        collection.update(
+
+        # store to database
+        result = collection.update(
             query,
             {'$set': {'digital_value': value}}
         )
+
+        # publish queue message
+        if result['n'] > 0:
+            message = QueueSignalMessage(
+                board_name=board_name,
+                pin_name=pin_name,
+                value=value,
+            )
+            message = json.dumps(message.__dict__)
+            QueuePublishService.publish(QueueTopics.SET_SIGNAL_ON, message)
+
         return PinControlService.find(collection, board_name, pin_name)
 
     @staticmethod
@@ -24,10 +42,22 @@ class PinControlService:
             'pin_name': pin_name,
         }
 
+        # store to database
         value = str(DigitalStatus.OFF.value[0])
-        collection.update(
+        result = collection.update(
             query, {'$set': {'digital_value': value}}
         )
+
+        # publish queue message
+        if result['n'] > 0:
+            message = QueueSignalMessage(
+                board_name=board_name,
+                pin_name=pin_name,
+                value=value,
+            )
+            message = json.dumps(message.__dict__)
+            QueuePublishService.publish(QueueTopics.SET_SIGNAL_OFF, message)
+
         return PinControlService.find(collection, board_name, pin_name)
 
     @staticmethod
@@ -36,9 +66,22 @@ class PinControlService:
             'board_name': board_name,
             'pin_name': pin_name,
         }
-        collection.update(
+
+        # store to database
+        result = collection.update(
             query, {'$set': {'analog_value': value}}
         )
+
+        # publish queue message
+        if result['n'] > 0:
+            message = QueueSignalMessage(
+                board_name=board_name,
+                pin_name=pin_name,
+                value=value,
+            )
+            message = json.dumps(message.__dict__)
+            QueuePublishService.publish(QueueTopics.SET_SIGNAL_VALUE, message)
+
         return PinControlService.find(collection, board_name, pin_name)
 
     @staticmethod

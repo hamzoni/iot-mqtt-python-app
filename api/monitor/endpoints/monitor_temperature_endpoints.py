@@ -2,7 +2,7 @@ from random import randint
 
 from fastapi import APIRouter, Depends
 
-from services.container import ServiceContainer
+from services.containers.service_container import ServiceContainer
 from services.monitor.temperature_monitor_service import TemperatureMonitorService
 
 router = APIRouter()

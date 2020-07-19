@@ -3,10 +3,10 @@ from starlette.middleware.cors import CORSMiddleware
 
 from api.monitor import api_monitor as monitor
 from api.signal import api_signal as signal
-from services.queues.queue_service import QueueService
+from services.queues.queue_subscribe_service import QueueSubscribeService
 
 # run queue service
-QueueService.run()
+QueueSubscribeService.run()
 
 # run web service
 app = FastAPI()

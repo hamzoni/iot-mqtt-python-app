@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Depends
 
 from api.signal.models.pin_model import Pin
-from services.container import ServiceContainer, DatabaseContainer
+from services.containers.database_container import DatabaseContainer
+from services.containers.service_container import ServiceContainer
 from services.signal.pin_registry_service import PinRegistryService
 
 router = APIRouter()

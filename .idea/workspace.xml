@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25049d83-fca7-4e42-a7c7-37bad70b8a35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/services/container.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/container.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/containers/base_container.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/containers/database_container.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/containers/service_container.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/queues/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/queues/models/queue_signal_message.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/queues/queue_publish_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/queues/queue_subscribe_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/monitor/endpoints/monitor_temperature_endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/monitor/endpoints/monitor_temperature_endpoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/signal/endpoints/signal_pin_control_endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/signal/endpoints/signal_pin_control_endpoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/signal/endpoints/signal_pin_registry_endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/signal/endpoints/signal_pin_registry_endpoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/container.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/queues/queue_route_service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/queues/queue_service.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/services/signal/pin_control_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/signal/pin_control_service.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,19 +30,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/signal/pin_control_service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/signal/endpoints/signal_pin_control_endpoints.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+            <state relative-caret-position="557">
+              <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,12 +53,15 @@
       <find>backend</find>
       <find>MqttRouteService</find>
       <find>resolve_message</find>
-      <find>QueueService</find>
       <find>QueueService.run</find>
       <find>QueueTopics</find>
       <find>__api_v2_version__</find>
       <find>created_at</find>
       <find>PinControlService</find>
+      <find>topics_registry</find>
+      <find>QueueRouteService</find>
+      <find>QueueListenerService</find>
+      <find>QueueService</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -74,8 +82,6 @@
         <option value="$PROJECT_DIR$/configs/__init__.py" />
         <option value="$PROJECT_DIR$/services/queues/mqtt_route.py" />
         <option value="$PROJECT_DIR$/services/queues/mqtt.py" />
-        <option value="$PROJECT_DIR$/services/configs/__init__.py" />
-        <option value="$PROJECT_DIR$/services/queues/queue_service.py" />
         <option value="$PROJECT_DIR$/services/monitor/temperature_monitor_service.py" />
         <option value="$PROJECT_DIR$/services/database.py" />
         <option value="$PROJECT_DIR$/services/signals/pin_registry_service.py" />
@@ -85,22 +91,35 @@
         <option value="$PROJECT_DIR$/services/signals/pin_control_service.py" />
         <option value="$PROJECT_DIR$/api/monitor/api_monitor.py" />
         <option value="$PROJECT_DIR$/api/signal/api_signal.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/api/signal/models.py" />
         <option value="$PROJECT_DIR$/services/signals/entities/Pin.py" />
         <option value="$PROJECT_DIR$/api/signal/models/pin_model.py" />
+        <option value="$PROJECT_DIR$/services/signal/pin_registry_service.py" />
+        <option value="$PROJECT_DIR$/services/configs/__init__.py" />
+        <option value="$PROJECT_DIR$/services/queues/queue_route_service.py" />
+        <option value="$PROJECT_DIR$/services/queues/models/queue_signal_message.py" />
+        <option value="$PROJECT_DIR$/services/queues/queue_listener_service.py" />
+        <option value="$PROJECT_DIR$/services/containers/base_container.py" />
+        <option value="$PROJECT_DIR$/services/containers/service_container.py" />
+        <option value="$PROJECT_DIR$/services/container.py" />
+        <option value="$PROJECT_DIR$/services/containers/database_container.py" />
+        <option value="$PROJECT_DIR$/api/monitor/endpoints/monitor_temperature_endpoints.py" />
         <option value="$PROJECT_DIR$/api/signal/endpoints/signal_pin_control_endpoints.py" />
         <option value="$PROJECT_DIR$/api/signal/endpoints/signal_pin_registry_endpoints.py" />
-        <option value="$PROJECT_DIR$/services/signal/pin_registry_service.py" />
-        <option value="$PROJECT_DIR$/api/monitor/endpoints/monitor_temperature_endpoints.py" />
-        <option value="$PROJECT_DIR$/services/container.py" />
+        <option value="$PROJECT_DIR$/services/containers/queue_container.py" />
+        <option value="$PROJECT_DIR$/services/queues/queue_service.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/services/queues/queue_publish_service.py" />
+        <option value="$PROJECT_DIR$/services/queues/queue_subscribe_service.py" />
         <option value="$PROJECT_DIR$/services/signal/pin_control_service.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="x" value="432" />
+    <option name="y" value="220" />
+    <option name="width" value="1440" />
+    <option name="height" value="810" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -142,7 +161,13 @@
               <item name="backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="monitor" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="queues" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -154,23 +179,25 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/services/configs/__init__.py" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/api/signal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/services/containers" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/services/containers" />
+      <recent name="$PROJECT_DIR$/api/signal" />
+      <recent name="$PROJECT_DIR$/services/signals" />
+      <recent name="$PROJECT_DIR$/api/signal/endpoints" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/api/signal/models" />
       <recent name="$PROJECT_DIR$/services" />
       <recent name="$PROJECT_DIR$/services/monitor" />
       <recent name="$PROJECT_DIR$/services/queues" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/api/signal" />
-      <recent name="$PROJECT_DIR$/services/signals" />
-      <recent name="$PROJECT_DIR$/api/signal/endpoints" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -196,18 +223,20 @@
       <option name="presentableId" value="Default" />
       <updated>1595059007602</updated>
       <workItem from="1595059008849" duration="5455000" />
-      <workItem from="1595066798734" duration="4177000" />
+      <workItem from="1595066798734" duration="5180000" />
+      <workItem from="1595082462251" duration="8727000" />
+      <workItem from="1595162589887" duration="1316000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9632000" />
+    <option name="totallyTimeSpent" value="20678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23048128" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23582888" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="aws.explorer" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -228,7 +257,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="5" side_tool="true" visible="true" weight="0.34919786" />
+      <window_info active="true" anchor="right" id="Terminal" order="5" side_tool="true" visible="true" weight="0.34919786" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,40 +266,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/api/monitor/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/configs/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="44" lean-forward="true" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/akadoc_gpu/lib/python3.7/site-packages/paho/mqtt/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="3524" column="57" lean-forward="true" selection-start-line="3524" selection-start-column="57" selection-end-line="3524" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/queues/queue_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/queues/queue_route_service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/-1514351218/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -340,16 +335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/akadoc_gpu/lib/python3.7/site-packages/fastapi/param_functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -377,6 +362,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/services/monitor/monitor_base_serivce.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="44" column="23" lean-forward="true" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/services/monitor/temperature_monitor_service.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -387,57 +382,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/monitor/endpoints/monitor_temperature_endpoints.py">
+    <entry file="file://$USER_HOME$/anaconda3/envs/akadoc_gpu/lib/python3.7/site-packages/paho/mqtt/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="648">
+          <caret line="1216" column="40" lean-forward="true" selection-start-line="1216" selection-start-column="40" selection-end-line="1216" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/container.py">
+    <entry file="file://$PROJECT_DIR$/services/queues/models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/queues/queue_listener_service.py" />
+    <entry file="file://$PROJECT_DIR$/services/containers/base_container.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="160">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/services/container.py" />
     <entry file="file://$PROJECT_DIR$/api/signal/endpoints/signal_pin_registry_endpoints.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="480">
+          <caret line="24" column="50" lean-forward="true" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/monitor/endpoints/monitor_temperature_endpoints.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/containers/database_container.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/configs/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/signal/endpoints/signal_pin_control_endpoints.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        <state relative-caret-position="337">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/monitor/monitor_base_serivce.py">
+    <entry file="file://$PROJECT_DIR$/services/containers/service_container.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="380">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/containers/queue_container.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/queues/models/queue_signal_message.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/queues/queue_subscribe_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/queues/queue_publish_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/services/signal/pin_control_service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        <state relative-caret-position="557">
+          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
