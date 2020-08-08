@@ -11,6 +11,16 @@ services = ServiceContainer.container()
 db = DatabaseContainer.container()
 
 
+@router.get('/boards')
+def list_all(
+        collection=Depends(db.get_pin_collection),
+        service: PinRegistryService = Depends(services.get_pin_registry_service)
+):
+    return {
+        'results': service.list_all_boards(collection)
+    }
+
+
 @router.get('')
 def list_all(
         collection=Depends(db.get_pin_collection),

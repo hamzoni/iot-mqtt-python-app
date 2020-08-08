@@ -30,3 +30,8 @@ app.include_router(
     prefix='/signal',
     tags=['Signal'],
 )
+
+
+@app.get('/?')
+def health_check():
+    return 'OK'

@@ -19,6 +19,12 @@ class DatabaseService:
         service = DatabaseService()
         return service.db['temperature']
 
+    @staticmethod
+    def moisture():
+        # moisture monitoring collection
+        service = DatabaseService()
+        return service.db['moisture']
+
     # signal service
     @staticmethod
     def pin():

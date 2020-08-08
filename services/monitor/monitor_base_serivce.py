@@ -1,4 +1,3 @@
-import time
 from datetime import datetime, timedelta
 
 import pymongo
@@ -8,16 +7,21 @@ class MonitorBaseService:
     def __init__(self, collection):
         self.collection = collection
 
-    def filter(self):
-        p_ts = datetime.utcnow() - timedelta(seconds=15)
+    def filter(self, board_name):
+        p_ts = datetime.utcnow() - timedelta(seconds=60)
         p_ts = datetime.timestamp(p_ts)
         p_ts = round(p_ts)
 
-        items = self.collection.find({
+        conditions = {
             'created_at': {
                 '$gt': p_ts
-            }
-        }).sort([('created_at', pymongo.DESCENDING)]).limit(60)
+            },
+            'board_name': board_name
+        }
+
+        items = self.collection.find(conditions)\
+            .sort([('created_at', pymongo.DESCENDING)])\
+            .limit(60)
 
         results = []
 
@@ -49,10 +53,12 @@ class MonitorBaseService:
             'results': 'success'
         }
 
-    def insert(self, value: str):
-        created_at = round(time.time())
+    def insert(self, board_name: str, value: str):
+        created_at = datetime.timestamp(datetime.utcnow())
+        created_at = round(created_at)
 
         item = {
+            'board_name': board_name,
             'value': value,
             'created_at': created_at
         }

@@ -6,10 +6,31 @@ from services.signal.entities import Pin
 class PinRegistryService:
 
     @staticmethod
+    def list_all_boards(collection):
+        items = collection.find({}, {'board_name': 1})
+
+        results = []
+
+        for item in items:
+            if item['board_name'] in results:
+                continue
+            item['_id'] = str(item['_id'])
+            results.append(item['board_name'])
+
+        return results
+
+    @staticmethod
     def list_all(collection):
         items = collection.find().sort([
             ('created_at', pymongo.DESCENDING)
         ])
+
+        collection.delete_many({
+            'board_name': '',
+        })
+        collection.delete_many({
+            'pin_name': ''
+        })
 
         results = []
 

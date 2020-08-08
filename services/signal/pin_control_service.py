@@ -31,7 +31,8 @@ class PinControlService:
                 value=value,
             )
             message = json.dumps(message.__dict__)
-            QueuePublishService.publish(QueueTopics.SET_SIGNAL_ON, message)
+            _topic = f'{board_name}_{QueueTopics.SET_SIGNAL_ON}'
+            QueuePublishService.publish(_topic, message)
 
         return PinControlService.find(collection, board_name, pin_name)
 
@@ -56,7 +57,8 @@ class PinControlService:
                 value=value,
             )
             message = json.dumps(message.__dict__)
-            QueuePublishService.publish(QueueTopics.SET_SIGNAL_OFF, message)
+            _topic = f'{board_name}_{QueueTopics.SET_SIGNAL_OFF}'
+            QueuePublishService.publish(_topic, message)
 
         return PinControlService.find(collection, board_name, pin_name)
 
@@ -77,10 +79,11 @@ class PinControlService:
             message = QueueSignalMessage(
                 board_name=board_name,
                 pin_name=pin_name,
-                value=value,
+                value=str(value),
             )
             message = json.dumps(message.__dict__)
-            QueuePublishService.publish(QueueTopics.SET_SIGNAL_VALUE, message)
+            _topic = f'{board_name}_{QueueTopics.SET_SIGNAL_VALUE}'
+            QueuePublishService.publish(_topic, message)
 
         return PinControlService.find(collection, board_name, pin_name)
 
@@ -90,5 +93,6 @@ class PinControlService:
             'board_name': board_name,
             'pin_name': pin_name,
         })
-        result['_id'] = str(result['_id'])
+        if result:
+            result['_id'] = str(result['_id'])
         return result
